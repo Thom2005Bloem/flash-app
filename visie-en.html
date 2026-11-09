@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vision – Flash</title>
+<meta name="description" content="Why Flash exists and where it is heading.">
+<meta property="og:title" content="Vision – Flash">
+<meta property="og:description" content="Why Flash exists and where it is heading.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://thom2005bloem.github.io/flash-app/images/kampvuur_maken.jpg">
+<link rel="canonical" href="https://thom2005bloem.github.io/flash-app/visie-en.html">
+<link rel="alternate" hreflang="nl" href="https://thom2005bloem.github.io/flash-app/visie.html">
+<link rel="alternate" hreflang="en" href="https://thom2005bloem.github.io/flash-app/visie-en.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://thom2005bloem.github.io/flash-app/visie-zh.html">
+<link rel="alternate" hreflang="x-default" href="https://thom2005bloem.github.io/flash-app/visie.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap kop"><a class="merk" href="index-en.html"><i></i>Flash</a><nav aria-label="Main menu"><a href="index-en.html">How it works</a><a href="voorbeeld-en.html">Example</a><a href="visie-en.html" aria-current="page">Vision</a><a href="over-en.html">About me</a><a href="support-en.html">Support</a></nav><details class="taal"><summary aria-label="Language: English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>EN</span></summary><div class="taal-menu"><a href="visie.html" hreflang="nl" lang="nl" data-taal="nl">Nederlands</a><a href="visie-en.html" hreflang="en" lang="en" data-taal="en" aria-current="page">English</a><a href="visie-zh.html" hreflang="zh-Hans" lang="zh-Hans" data-taal="zh">中文</a></div></details></div></header>
+<main>
+
+<section><div class="wrap">
+  <h1>Vision</h1>
+  <p class="inleiding">Why Flash exists and where it is heading.</p>
+</div></section>
+
+<section><div class="wrap">
+  <p class="uitspraak">The best moments are the ones you share. Flash makes sure you look back on them together too.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>What Flash stands for</h2>
+  <div class="principes">
+    <div><h3>Live it first</h3><p>Because you only see the photos later, you don't spend the whole evening on your phone checking what others are posting. You enjoy the moment and look back later.</p></div>
+    <div><h3>Remember together</h3><p>After a weekend away, the photos are scattered across ten phones. Flash brings them together, along with what was said.</p></div>
+    <div><h3>The surprise is back</h3><p>You used to wait days for your film to be developed. Flash brings that feeling back: the opening day is a small celebration in itself.</p></div>
+    <div><h3>Private and fair</h3><p>No ads, no followers, no public profiles. Your memories are only for the people who were there. Guests always join for free.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Where Flash is now</h2>
+  <ol class="tijdlijn">
+    <li><strong>The app is built</strong><p>Events, invite codes, photos, quotes, messages and the opening day all work.</p></li>
+    <li class="nu"><strong>Now: testing with friends and family</strong><p>A small group uses Flash at real events and gives feedback.</p></li>
+    <li><strong>Improving based on feedback</strong><p>Whatever testers miss or find difficult gets fixed first.</p></li>
+    <li><strong>Launch in the App Store</strong><p>After that, anyone with an iPhone can download Flash.</p></li>
+  </ol>
+</div></section>
+
+</main>
+<footer><div class="wrap voet"><span>Questions or feedback? Email <a href="mailto:flashapp.support05@gmail.com">flashapp.support05@gmail.com</a></span><a href="privacy-en.html">Privacy policy</a><a href="voorwaarden-en.html">Terms of use</a></div></footer>
+<script>
+// Taalmenu sluiten bij klik ernaast of Escape, en de gekozen taal onthouden
+(function(){
+  var d=document.querySelector('.taal');if(!d)return;
+  document.addEventListener('click',function(e){if(d.open&&!d.contains(e.target))d.open=false});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.open){d.open=false;d.querySelector('summary').focus()}});
+  d.querySelectorAll('a[data-taal]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('flash-taal',a.dataset.taal)}catch(_){}})});
+})();
+</script>
+</body>
+</html>

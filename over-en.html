@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About me – Flash</title>
+<meta name="description" content="Who makes Flash and how it started.">
+<meta property="og:title" content="About me – Flash">
+<meta property="og:description" content="Who makes Flash and how it started.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://thom2005bloem.github.io/flash-app/images/kampvuur_maken.jpg">
+<link rel="canonical" href="https://thom2005bloem.github.io/flash-app/over-en.html">
+<link rel="alternate" hreflang="nl" href="https://thom2005bloem.github.io/flash-app/over.html">
+<link rel="alternate" hreflang="en" href="https://thom2005bloem.github.io/flash-app/over-en.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://thom2005bloem.github.io/flash-app/over-zh.html">
+<link rel="alternate" hreflang="x-default" href="https://thom2005bloem.github.io/flash-app/over.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap kop"><a class="merk" href="index-en.html"><i></i>Flash</a><nav aria-label="Main menu"><a href="index-en.html">How it works</a><a href="voorbeeld-en.html">Example</a><a href="visie-en.html">Vision</a><a href="over-en.html" aria-current="page">About me</a><a href="support-en.html">Support</a></nav><details class="taal"><summary aria-label="Language: English"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>EN</span></summary><div class="taal-menu"><a href="over.html" hreflang="nl" lang="nl" data-taal="nl">Nederlands</a><a href="over-en.html" hreflang="en" lang="en" data-taal="en" aria-current="page">English</a><a href="over-zh.html" hreflang="zh-Hans" lang="zh-Hans" data-taal="zh">中文</a></div></details></div></header>
+<main>
+
+<section><div class="wrap over">
+  <figure class="polaroid portret"><img src="images/thom.jpg" alt="Thom, the maker of Flash"><figcaption>Thom<span>maker</span></figcaption></figure>
+  <div>
+    <h1>Hi, I'm Thom</h1>
+    <p class="inleiding">I study Building Engineering, and Flash is my own project alongside my studies.</p>
+    <h2 style="margin-top:40px">How Flash started</h2>
+    <p>After every birthday, holiday or party it's the same story: everyone has photos, but they never end up in one place. They stay scattered across phones and group chats, and after a week nobody looks at them anymore.</p>
+    <p>I wanted to build an app myself and chose the idea I liked most: a shared memory capsule. Fill it together, open it later. That's how Flash was born.</p>
+    <h2 style="margin-top:40px">What I'd love to hear from you</h2>
+    <p>Flash is currently being tested by friends and family. Something not working, missing something, or have an idea? Email me at <a href="mailto:flashapp.support05@gmail.com">flashapp.support05@gmail.com</a>. Every tip helps make Flash better.</p>
+  </div>
+</div></section>
+
+</main>
+<footer><div class="wrap voet"><span>Questions or feedback? Email <a href="mailto:flashapp.support05@gmail.com">flashapp.support05@gmail.com</a></span><a href="privacy-en.html">Privacy policy</a><a href="voorwaarden-en.html">Terms of use</a></div></footer>
+<script>
+// Taalmenu sluiten bij klik ernaast of Escape, en de gekozen taal onthouden
+(function(){
+  var d=document.querySelector('.taal');if(!d)return;
+  document.addEventListener('click',function(e){if(d.open&&!d.contains(e.target))d.open=false});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.open){d.open=false;d.querySelector('summary').focus()}});
+  d.querySelectorAll('a[data-taal]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('flash-taal',a.dataset.taal)}catch(_){}})});
+})();
+</script>
+</body>
+</html>

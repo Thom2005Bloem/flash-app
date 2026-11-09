@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>关于我 – Flash</title>
+<meta name="description" content="Flash 的开发者是谁，以及它是怎么开始的。">
+<meta property="og:title" content="关于我 – Flash">
+<meta property="og:description" content="Flash 的开发者是谁，以及它是怎么开始的。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://thom2005bloem.github.io/flash-app/images/kampvuur_maken.jpg">
+<link rel="canonical" href="https://thom2005bloem.github.io/flash-app/over-zh.html">
+<link rel="alternate" hreflang="nl" href="https://thom2005bloem.github.io/flash-app/over.html">
+<link rel="alternate" hreflang="en" href="https://thom2005bloem.github.io/flash-app/over-en.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://thom2005bloem.github.io/flash-app/over-zh.html">
+<link rel="alternate" hreflang="x-default" href="https://thom2005bloem.github.io/flash-app/over.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap kop"><a class="merk" href="index-zh.html"><i></i>Flash</a><nav aria-label="主菜单"><a href="index-zh.html">使用方法</a><a href="voorbeeld-zh.html">示例</a><a href="visie-zh.html">愿景</a><a href="over-zh.html" aria-current="page">关于我</a><a href="support-zh.html">支持</a></nav><details class="taal"><summary aria-label="语言: 中文"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>中文</span></summary><div class="taal-menu"><a href="over.html" hreflang="nl" lang="nl" data-taal="nl">Nederlands</a><a href="over-en.html" hreflang="en" lang="en" data-taal="en">English</a><a href="over-zh.html" hreflang="zh-Hans" lang="zh-Hans" data-taal="zh" aria-current="page">中文</a></div></details></div></header>
+<main>
+
+<section><div class="wrap over">
+  <figure class="polaroid portret"><img src="images/thom.jpg" alt="Thom，Flash 的开发者"><figcaption>Thom<span>开发者</span></figcaption></figure>
+  <div>
+    <h1>你好，我是 Thom</h1>
+    <p class="inleiding">我是一名建筑工程专业的学生，Flash 是我在学业之余的个人项目。</p>
+    <h2 style="margin-top:40px">Flash 的由来</h2>
+    <p>每次生日、旅行或派对之后都是同样的情况：每个人都拍了照片，但它们从来没有汇集到一起。照片散落在各自的手机和群聊里，一周之后就再也没人看了。</p>
+    <p>我想自己开发一个应用，于是选了我最喜欢的点子：一个共享的回忆胶囊。一起填满，以后再打开。Flash 就这样诞生了。</p>
+    <h2 style="margin-top:40px">我想听听你的想法</h2>
+    <p>Flash 目前正在由亲友测试。有什么不好用、缺少什么功能，或者有新点子？请发邮件给我：<a href="mailto:flashapp.support05@gmail.com">flashapp.support05@gmail.com</a>。每一条建议都能让 Flash 变得更好。</p>
+  </div>
+</div></section>
+
+</main>
+<footer><div class="wrap voet"><span>有问题或建议？请发邮件至 <a href="mailto:flashapp.support05@gmail.com">flashapp.support05@gmail.com</a></span><a href="privacy-zh.html">隐私政策</a><a href="voorwaarden-zh.html">使用条款</a></div></footer>
+<script>
+// Taalmenu sluiten bij klik ernaast of Escape, en de gekozen taal onthouden
+(function(){
+  var d=document.querySelector('.taal');if(!d)return;
+  document.addEventListener('click',function(e){if(d.open&&!d.contains(e.target))d.open=false});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.open){d.open=false;d.querySelector('summary').focus()}});
+  d.querySelectorAll('a[data-taal]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('flash-taal',a.dataset.taal)}catch(_){}})});
+})();
+</script>
+</body>
+</html>
