@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://thom2005bloem.github.io/flash-app/sitemap.xml
