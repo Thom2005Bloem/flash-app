@@ -1,16 +1,16 @@
-# Bouwt alle pagina's in drie talen (NL, EN, 中文) met dezelfde kop, taalknop en voet.
+# Bouwt alle pagina's in vijf talen (NL, EN, FR, ES, 中文) met dezelfde kop, taalknop en voet.
 # Draai: python3 maak.py
 #
-# Bestandsnamen: Nederlands = naam.html, Engels = naam-en.html, Chinees = naam-zh.html
+# Bestandsnamen: Nederlands = naam.html, andere talen = naam-<taal>.html (bijv. naam-fr.html)
 # (dezelfde namen die de app gebruikt voor privacy en voorwaarden).
 import os, re
 
 EMAIL = "flashapp.support05@gmail.com"
 SITE = "https://thom2005bloem.github.io/flash-app"
-TALEN = ["nl", "en", "zh"]
-HTML_LANG = {"nl": "nl", "en": "en", "zh": "zh-Hans"}
-TAALNAAM = {"nl": "Nederlands", "en": "English", "zh": "中文"}
-KORT = {"nl": "NL", "en": "EN", "zh": "中文"}
+TALEN = ["nl", "en", "fr", "es", "zh"]
+HTML_LANG = {"nl": "nl", "en": "en", "fr": "fr", "es": "es", "zh": "zh-Hans"}
+TAALNAAM = {"nl": "Nederlands", "en": "English", "fr": "Français", "es": "Español", "zh": "中文"}
+KORT = {"nl": "NL", "en": "EN", "fr": "FR", "es": "ES", "zh": "中文"}
 
 # Teksten van de kop en voet per taal
 UI = {
@@ -18,6 +18,10 @@ UI = {
            "privacy": "Privacybeleid", "voorwaarden": "Voorwaarden", "van": "van {}"},
     "en": {"menu": "Main menu", "taal": "Language", "vragen": "Questions or feedback? Email",
            "privacy": "Privacy policy", "voorwaarden": "Terms of use", "van": "by {}"},
+    "fr": {"menu": "Menu principal", "taal": "Langue", "vragen": "Des questions ou un avis ? Écris à",
+           "privacy": "Politique de confidentialité", "voorwaarden": "Conditions d'utilisation", "van": "de {}"},
+    "es": {"menu": "Menú principal", "taal": "Idioma", "vragen": "¿Preguntas o comentarios? Escribe a",
+           "privacy": "Política de privacidad", "voorwaarden": "Términos de uso", "van": "de {}"},
     "zh": {"menu": "主菜单", "taal": "语言", "vragen": "有问题或建议？请发邮件至",
            "privacy": "隐私政策", "voorwaarden": "使用条款", "van": "来自 {}"},
 }
@@ -25,6 +29,8 @@ UI = {
 MENU = {
     "nl": [("index.html", "Zo werkt het"), ("voorbeeld.html", "Voorbeeld"), ("visie.html", "Visie"), ("over.html", "Over mij"), ("support.html", "Support")],
     "en": [("index.html", "How it works"), ("voorbeeld.html", "Example"), ("visie.html", "Vision"), ("over.html", "About me"), ("support.html", "Support")],
+    "fr": [("index.html", "Comment ça marche"), ("voorbeeld.html", "Exemple"), ("visie.html", "Vision"), ("over.html", "À propos"), ("support.html", "Aide")],
+    "es": [("index.html", "Cómo funciona"), ("voorbeeld.html", "Ejemplo"), ("visie.html", "Visión"), ("over.html", "Sobre mí"), ("support.html", "Ayuda")],
     "zh": [("index.html", "使用方法"), ("voorbeeld.html", "示例"), ("visie.html", "愿景"), ("over.html", "关于我"), ("support.html", "支持")],
 }
 
@@ -577,6 +583,322 @@ P["zh"]["support.html"] = ("支持 – Flash", "Flash 的帮助与联系方式�
   <p>在应用中通过你的个人资料操作。你的账户、你的回忆以及你创建的活动都会被删除。详情请阅读<a href="privacy-zh.html">隐私政策</a>。</p>
   <h2>联系我们</h2>
   <p>发送邮件至 <a href="mailto:{EMAIL}">{EMAIL}</a>。通常会在两天内回复。</p>
+</div></section>
+''')
+
+# ───────────────────────────── Frans ─────────────────────────────
+
+P["fr"]["index.html"] = ("Application Flash – l'appareil photo jetable partagé pour tes événements",
+"Flash est une application iPhone : un appareil photo jetable partagé pour ton anniversaire, ton voyage ou ta fête. Chacun ajoute des photos, des citations et des messages, et tout reste scellé jusqu'au jour de l'ouverture.", f'''
+<div class="wrap held">
+  <div>
+    <span class="status">En test avec les amis et la famille</span>
+    <h1>Tout le monde prend des photos. Tu découvres tout plus tard.</h1>
+    <p class="inleiding">Flash est un appareil photo jetable partagé pour ton anniversaire, ton voyage ou ta fête. Chacun ajoute des photos, des citations et des messages, et tout reste scellé jusqu'au jour où l'événement s'ouvre.</p>
+    <div class="knoppen"><a class="knop vol" href="voorbeeld-fr.html">Voir un exemple</a><a class="knop rand" href="#zo-werkt-het">Comment ça marche</a></div>
+  </div>
+  <div class="stapel" aria-hidden="true">
+    {foto("kampvuur_maken","Feu de camp au bord de l'eau","Noor","","fr")}
+    {foto("wandelen","Perdus, mais ensemble","Sam","","fr")}
+    {foto("kampvuur","Café près de la tente","Lars","","fr")}
+  </div>
+</div>
+
+<section id="zo-werkt-het"><div class="wrap">
+  <h2>Comment ça marche</h2>
+  <ol class="stappen">
+    <li><h3>Crée un événement</h3><p>Donne-lui un nom et choisis le jour où il s'ouvre : demain, dans un mois ou dans un an.</p></li>
+    <li><h3>Invite tes amis</h3><p>Partage un code. Les participants ajoutent des photos, des citations et des messages ; les spectateurs voient seulement le résultat final.</p></li>
+    <li><h3>Ouvrez-le ensemble</h3><p>Le jour de l'ouverture, tout le monde reçoit une notification et vous découvrez enfin tout ce que les autres ont capturé.</p></li>
+  </ol>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Pourquoi Flash est différent</h2>
+  <div class="kenmerken">
+    <div><h3>Scellé jusqu'à l'ouverture</h3><p>Tu ne vois que ce que tu ajoutes toi-même. Le reste reste une surprise, comme une pellicule qui doit encore être développée.</p></div>
+    <div><h3>Seulement ton groupe</h3><p>Un événement compte 15 personnes maximum. Personne d'autre ne peut le trouver ni le voir.</p></div>
+    <div><h3>Plus que des photos</h3><p>Garde aussi ce qui a été dit, ou écris un message à vous-mêmes dans le futur.</p></div>
+    <div><h3>Directement dans ta galerie</h3><p>Quand l'événement s'ouvre, Flash met toutes les photos dans un album sur ton téléphone.</p></div>
+  </div>
+</div></section>
+''')
+
+P["fr"]["voorbeeld.html"] = ("Exemple – Flash", "Voici à quoi ressemble un événement ouvert dans Flash.", f'''
+<section><div class="wrap">
+  <h1>Voici à quoi ressemble un événement ouvert</h1>
+  <p class="inleiding">Voici un exemple avec des prénoms inventés : un week-end entre amis, le jour où il s'ouvre.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Avant et après l'ouverture</h2>
+  <div class="voorna">
+    <div class="scherm"><span class="label dicht">Scellé</span><h3>Week-end dans les Ardennes</h3><div class="teller">3j 14h 32m</div><p>Tu ne vois que tes 6 propres photos. Il contient déjà 41 souvenirs de 9 amis.</p></div>
+    <div class="scherm"><span class="label">Ouvert</span><h3>Week-end dans les Ardennes</h3><div class="teller">41</div><p>souvenirs de 9 amis, maintenant visibles par tous et enregistrés dans la galerie de chacun.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="evenement-kop"><div><span class="label">Ouvert le 14 juin 2026</span><h2 style="margin:0">Week-end dans les Ardennes</h2></div><p class="waarschuwing" style="margin:0">41 souvenirs de 9 amis</p></div>
+  <div class="muur">
+    {foto("bergen","La vue du premier jour","Sam","Collines boisées des Ardennes","fr")}
+    <div class="quote"><blockquote>Je suis sûr que ce chemin est un raccourci.</blockquote><p>Lars, deux heures avant qu'on se perde</p></div>
+    {foto("wandelen","Perdus, mais ensemble","Thom","Deux amis avec des sacs à dos dans la forêt","fr")}
+    {foto("kampvuur","Café près de la tente","Noor","Amis autour d'un feu de camp près d'une tente","fr")}
+    {foto("kampvuur_maken","Feu de camp au bord de l'eau","Mila","Amis autour d'un feu de camp au coucher du soleil","fr")}
+    <div class="bericht"><strong>Message pour le futur</strong><p>Si vous lisez ceci : avons-nous déjà prévu le prochain week-end ? Sinon, faites-le maintenant.</p><small>de Jesse</small></div>
+    {foto("feest","L'anniversaire de Sam à minuit","Jesse","Gâteau d'anniversaire avec des bougies","fr")}
+    {foto("strand","Un dernier tour au bord de l'eau dimanche","Sam","Dessin d'une plage avec un parasol","fr")}
+    <div class="quote"><blockquote>Encore une partie et on va dormir.</blockquote><p>Noor, à trois heures et demie du matin</p></div>
+    {foto("stad","Retour en ville","Mila","Dessin d'une ville la nuit","fr")}
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="evenement-kop"><div><span class="label">Ouvert le 1er avril 2026</span><h2 style="margin:0">Vacances au ski 2026</h2></div><p class="waarschuwing" style="margin:0">58 souvenirs de 7 amis</p></div>
+  <div class="muur">
+    {foto("skivakantie-2026-1","Prêt pour la première descente","Lars","Skieur sur la piste avec des montagnes en arrière-plan","fr")}
+    <div class="quote"><blockquote>Une piste rouge ? C'est juste une bleue d'une autre couleur.</blockquote><p>Sam, juste avant sa première chute</p></div>
+    {foto("skivakantie-2026-2","Profiter de la vue","Noor","Skieur regardant des sommets enneigés","fr")}
+    {foto("skivakantie-2026-3","Ciel bleu, neige fraîche","Thom","Piste de ski avec remontées et montagnes","fr")}
+    <div class="bericht"><strong>Message pour le futur</strong><p>Même semaine l'année prochaine ? Personne n'a le droit de dire qu'il n'a pas le temps.</p><small>de Mila</small></div>
+    {foto("skivakantie-2026-4","Pause déjeuner près du télésiège","Jesse","Skis et bâtons plantés dans la neige près d'un téléski","fr")}
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="evenement-kop"><div><span class="label">Ouvert le 1er janvier 2026</span><h2 style="margin:0">Voyage en Indonésie 2025</h2></div><p class="waarschuwing" style="margin:0">73 souvenirs de 12 compagnons de voyage</p></div>
+  <div class="muur">
+    {foto("vakantie-indonesie-2025-1","Rizières près du village","Mila","Rizières devant un village avec des palmiers","fr")}
+    {foto("vakantie-indonesie-2025-3","Vue sur la plaine du Bromo","Lars","Volcan et plaine derrière des arbres tropicaux","fr")}
+    <div class="quote"><blockquote>Encore un temple et après, promis, on va à la piscine.</blockquote><p>Noor, il y a trois temples</p></div>
+    {foto("vakantie-indonesie-2025-5","Photo de groupe à Borobudur","Thom","Groupe de voyageurs près des stupas de Borobudur","fr")}
+    {foto("vakantie-indonesie-2025-2","Vue sur la jungle","Sam","Palmiers et rizières en terrasses dans la jungle","fr")}
+    <div class="bericht"><strong>Message pour le futur</strong><p>Vous vous souvenez de la chaleur ? Gardez ces photos pour une froide journée de janvier.</p><small>de Jesse</small></div>
+    {foto("vakantie-indonesie-2025-4","Se rafraîchir dans la piscine","Noor","Piscine entre les palmiers","fr")}
+  </div>
+  <p class="waarschuwing">Les photos ci-dessus sont des photos d'exemple. Dans l'application, tu verras les vraies photos de ton groupe.</p>
+</div></section>
+''')
+
+P["fr"]["visie.html"] = ("Vision – Flash", "Pourquoi Flash existe et où va le projet.", '''
+<section><div class="wrap">
+  <h1>Vision</h1>
+  <p class="inleiding">Pourquoi Flash existe et où va le projet.</p>
+</div></section>
+
+<section><div class="wrap">
+  <p class="uitspraak">Les plus beaux moments se vivent ensemble. Flash fait en sorte que vous les revoyiez ensemble aussi.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Ce que défend Flash</h2>
+  <div class="principes">
+    <div><h3>Vivre d'abord</h3><p>Comme tu ne vois les photos que plus tard, tu n'as pas besoin de regarder ton téléphone toute la soirée pour voir ce que les autres publient. Tu vis le moment et tu le revois plus tard.</p></div>
+    <div><h3>Se souvenir ensemble</h3><p>Après un week-end, les photos sont éparpillées sur dix téléphones. Flash les rassemble, avec ce qui a été dit.</p></div>
+    <div><h3>Le retour de la surprise</h3><p>Avant, on attendait des jours le développement de sa pellicule. Flash fait revivre ce sentiment : le jour de l'ouverture est une petite fête en soi.</p></div>
+    <div><h3>Privé et honnête</h3><p>Pas de publicité, pas d'abonnés, pas de profils publics. Tes souvenirs sont uniquement pour les personnes qui étaient là. Les invités participent toujours gratuitement.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Où en est Flash</h2>
+  <ol class="tijdlijn">
+    <li><strong>L'application est construite</strong><p>Les événements, les codes d'invitation, les photos, les citations, les messages et le jour de l'ouverture fonctionnent.</p></li>
+    <li class="nu"><strong>Maintenant : tests avec les amis et la famille</strong><p>Un petit groupe utilise Flash lors de vrais événements et donne son avis.</p></li>
+    <li><strong>Améliorer grâce aux retours</strong><p>Ce qui manque aux testeurs ou ce qu'ils trouvent difficile est corrigé en premier.</p></li>
+    <li><strong>Lancement sur l'App Store</strong><p>Ensuite, tout le monde avec un iPhone pourra télécharger Flash.</p></li>
+  </ol>
+</div></section>
+''')
+
+P["fr"]["over.html"] = ("À propos – Flash", "Qui fait Flash et comment tout a commencé.", f'''
+<section><div class="wrap over">
+  <figure class="polaroid portret"><img src="images/thom.jpg" alt="Thom, le créateur de Flash"><figcaption>Thom<span>créateur</span></figcaption></figure>
+  <div>
+    <h1>Salut, moi c'est Thom</h1>
+    <p class="inleiding">J'étudie le génie civil et la construction, et Flash est mon propre projet, à côté de mes études.</p>
+    <h2 style="margin-top:40px">Comment Flash a commencé</h2>
+    <p>Après chaque anniversaire, vacances ou fête, c'est la même histoire : tout le monde a des photos, mais elles ne sont jamais réunies. Elles restent éparpillées sur les téléphones et dans les groupes de discussion, et au bout d'une semaine, plus personne ne les regarde.</p>
+    <p>Je voulais créer moi-même une application et j'ai choisi l'idée qui me plaisait le plus : une capsule de souvenirs partagée. La remplir ensemble, l'ouvrir plus tard. C'est ainsi qu'est né Flash.</p>
+    <h2 style="margin-top:40px">Ce que j'aimerais savoir</h2>
+    <p>Flash est en cours de test par des amis et la famille. Quelque chose ne fonctionne pas, il te manque quelque chose ou tu as une idée ? Écris-moi à <a href="mailto:{EMAIL}">{EMAIL}</a>. Chaque conseil aide à améliorer Flash.</p>
+  </div>
+</div></section>
+''')
+
+P["fr"]["support.html"] = ("Aide – Flash", "Aide et contact pour Flash.", f'''
+<section><div class="wrap smal tekst">
+  <h1>Aide</h1>
+  <p class="inleiding">Besoin d'aide avec Flash ? Tu trouveras ici les réponses aux questions les plus fréquentes.</p>
+  <h2>Comment rejoindre un événement ?</h2>
+  <p>Demande un code au créateur. Dans Flash, appuie sur rejoindre et saisis le code. Avec un code participant, tu peux ajouter des souvenirs ; avec un code spectateur, tu vois seulement le résultat final.</p>
+  <h2>Pourquoi je ne vois pas les photos des autres ?</h2>
+  <p>L'événement est encore scellé. Tu ne vois que ce que tu as ajouté toi-même. Le jour de l'ouverture, tu verras tout.</p>
+  <h2>J'ai oublié mon mot de passe</h2>
+  <p>Écris à l'adresse ci-dessous depuis l'adresse e-mail de ton compte. Tu recevras un lien pour choisir un nouveau mot de passe.</p>
+  <h2>Comment supprimer mon compte ?</h2>
+  <p>Dans l'application, via ton profil. Ton compte, tes souvenirs et les événements que tu as créés seront alors supprimés. Pour en savoir plus, lis la <a href="privacy-fr.html">politique de confidentialité</a>.</p>
+  <h2>Contact</h2>
+  <p>Écris à <a href="mailto:{EMAIL}">{EMAIL}</a>. Tu recevras généralement une réponse sous deux jours.</p>
+</div></section>
+''')
+
+# ───────────────────────────── Spaans ─────────────────────────────
+
+P["es"]["index.html"] = ("App Flash – la cámara desechable compartida para tus eventos",
+"Flash es una app para iPhone: una cámara desechable compartida para tu cumpleaños, viaje o fiesta. Todos añaden fotos, frases y mensajes, y todo queda sellado hasta el día de la apertura.", f'''
+<div class="wrap held">
+  <div>
+    <span class="status">En pruebas con amigos y familia</span>
+    <h1>Todos hacen fotos. Lo ves todo más tarde.</h1>
+    <p class="inleiding">Flash es una cámara desechable compartida para tu cumpleaños, viaje o fiesta. Todos añaden fotos, frases y mensajes, y todo queda sellado hasta el día en que se abre el evento.</p>
+    <div class="knoppen"><a class="knop vol" href="voorbeeld-es.html">Ver un ejemplo</a><a class="knop rand" href="#zo-werkt-het">Cómo funciona</a></div>
+  </div>
+  <div class="stapel" aria-hidden="true">
+    {foto("kampvuur_maken","Hoguera junto al agua","Noor","","es")}
+    {foto("wandelen","Perdidos, pero juntos","Sam","","es")}
+    {foto("kampvuur","Café junto a la tienda","Lars","","es")}
+  </div>
+</div>
+
+<section id="zo-werkt-het"><div class="wrap">
+  <h2>Cómo funciona</h2>
+  <ol class="stappen">
+    <li><h3>Crea un evento</h3><p>Ponle un nombre y elige el día en que se abre: mañana, dentro de un mes o dentro de un año.</p></li>
+    <li><h3>Invita a tus amigos</h3><p>Comparte un código. Los participantes añaden fotos, frases y mensajes; los espectadores solo ven el resultado final.</p></li>
+    <li><h3>Abridlo juntos</h3><p>El día de la apertura, todos reciben una notificación y por fin veis todo lo que los demás han capturado.</p></li>
+  </ol>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Por qué Flash es diferente</h2>
+  <div class="kenmerken">
+    <div><h3>Sellado hasta la apertura</h3><p>Solo ves lo que añades tú. El resto sigue siendo una sorpresa, como un carrete que aún hay que revelar.</p></div>
+    <div><h3>Solo tu grupo</h3><p>Un evento tiene como máximo 15 personas. Nadie más puede encontrarlo ni verlo.</p></div>
+    <div><h3>Más que fotos</h3><p>Guarda también lo que se dijo, o escribe un mensaje a vuestro yo del futuro.</p></div>
+    <div><h3>Directo a tu galería</h3><p>Cuando se abre el evento, Flash pone todas las fotos en un álbum de tu teléfono.</p></div>
+  </div>
+</div></section>
+''')
+
+P["es"]["voorbeeld.html"] = ("Ejemplo – Flash", "Así es un evento abierto en Flash.", f'''
+<section><div class="wrap">
+  <h1>Así es un evento abierto</h1>
+  <p class="inleiding">Este es un ejemplo con nombres inventados: un fin de semana con amigos, el día en que se abre.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Antes y después de la apertura</h2>
+  <div class="voorna">
+    <div class="scherm"><span class="label dicht">Sellado</span><h3>Fin de semana en las Ardenas</h3><div class="teller">3d 14h 32m</div><p>Solo ves tus 6 fotos. Ya contiene 41 recuerdos de 9 amigos.</p></div>
+    <div class="scherm"><span class="label">Abierto</span><h3>Fin de semana en las Ardenas</h3><div class="teller">41</div><p>recuerdos de 9 amigos, ahora visibles para todos y guardados en la galería de cada uno.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="evenement-kop"><div><span class="label">Abierto el 14 de junio de 2026</span><h2 style="margin:0">Fin de semana en las Ardenas</h2></div><p class="waarschuwing" style="margin:0">41 recuerdos de 9 amigos</p></div>
+  <div class="muur">
+    {foto("bergen","Las vistas del primer día","Sam","Colinas boscosas de las Ardenas","es")}
+    <div class="quote"><blockquote>Estoy seguro de que este camino es un atajo.</blockquote><p>Lars, dos horas antes de perdernos</p></div>
+    {foto("wandelen","Perdidos, pero juntos","Thom","Dos amigos con mochilas en el bosque","es")}
+    {foto("kampvuur","Café junto a la tienda","Noor","Amigos alrededor de una hoguera junto a una tienda","es")}
+    {foto("kampvuur_maken","Hoguera junto al agua","Mila","Amigos alrededor de una hoguera al atardecer","es")}
+    <div class="bericht"><strong>Mensaje para el futuro</strong><p>Si estáis leyendo esto: ¿ya hemos planeado el próximo fin de semana? Si no, hacedlo ahora.</p><small>de Jesse</small></div>
+    {foto("feest","El cumpleaños de Sam a medianoche","Jesse","Tarta de cumpleaños con velas","es")}
+    {foto("strand","Una última vuelta al agua el domingo","Sam","Dibujo de una playa con una sombrilla","es")}
+    <div class="quote"><blockquote>Una partida más y nos vamos a dormir.</blockquote><p>Noor, a las tres y media de la madrugada</p></div>
+    {foto("stad","De vuelta en la ciudad","Mila","Dibujo de una ciudad de noche","es")}
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="evenement-kop"><div><span class="label">Abierto el 1 de abril de 2026</span><h2 style="margin:0">Viaje de esquí 2026</h2></div><p class="waarschuwing" style="margin:0">58 recuerdos de 7 amigos</p></div>
+  <div class="muur">
+    {foto("skivakantie-2026-1","Listo para la primera bajada","Lars","Esquiador en la pista con montañas al fondo","es")}
+    <div class="quote"><blockquote>¿Pista roja? Si es una azul de otro color.</blockquote><p>Sam, justo antes de su primera caída</p></div>
+    {foto("skivakantie-2026-2","Disfrutando de las vistas","Noor","Esquiador mirando cumbres nevadas","es")}
+    {foto("skivakantie-2026-3","Cielo azul, nieve fresca","Thom","Pista de esquí con remontes y montañas","es")}
+    <div class="bericht"><strong>Mensaje para el futuro</strong><p>¿La misma semana el año que viene? Nadie puede decir que no tiene tiempo.</p><small>de Mila</small></div>
+    {foto("skivakantie-2026-4","Pausa para comer junto al remonte","Jesse","Esquís y bastones en la nieve junto a un remonte","es")}
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="evenement-kop"><div><span class="label">Abierto el 1 de enero de 2026</span><h2 style="margin:0">Viaje a Indonesia 2025</h2></div><p class="waarschuwing" style="margin:0">73 recuerdos de 12 compañeros de viaje</p></div>
+  <div class="muur">
+    {foto("vakantie-indonesie-2025-1","Arrozales junto al pueblo","Mila","Arrozales delante de un pueblo con palmeras","es")}
+    {foto("vakantie-indonesie-2025-3","Vistas de la llanura del Bromo","Lars","Volcán y llanura detrás de árboles tropicales","es")}
+    <div class="quote"><blockquote>Un templo más y luego, de verdad, nos vamos a la piscina.</blockquote><p>Noor, hace tres templos</p></div>
+    {foto("vakantie-indonesie-2025-5","Foto de grupo en Borobudur","Thom","Grupo de viajeros junto a las estupas de Borobudur","es")}
+    {foto("vakantie-indonesie-2025-2","Vistas sobre la selva","Sam","Palmeras y terrazas de arroz en la selva","es")}
+    <div class="bericht"><strong>Mensaje para el futuro</strong><p>¿Os acordáis del calor que hacía? Guardad estas fotos para un día frío de enero.</p><small>de Jesse</small></div>
+    {foto("vakantie-indonesie-2025-4","Refrescándonos en la piscina","Noor","Piscina entre palmeras","es")}
+  </div>
+  <p class="waarschuwing">Las fotos de arriba son fotos de ejemplo. En la app verás las fotos reales de tu grupo.</p>
+</div></section>
+''')
+
+P["es"]["visie.html"] = ("Visión – Flash", "Por qué existe Flash y hacia dónde va.", '''
+<section><div class="wrap">
+  <h1>Visión</h1>
+  <p class="inleiding">Por qué existe Flash y hacia dónde va.</p>
+</div></section>
+
+<section><div class="wrap">
+  <p class="uitspraak">Los mejores momentos se viven juntos. Flash hace que también los volváis a ver juntos.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Lo que defiende Flash</h2>
+  <div class="principes">
+    <div><h3>Primero vivirlo</h3><p>Como solo ves las fotos más tarde, no tienes que pasarte la noche mirando el móvil para ver qué publican los demás. Vives el momento y lo recuerdas después.</p></div>
+    <div><h3>Recordar juntos</h3><p>Después de un fin de semana, las fotos están repartidas en diez móviles. Flash las reúne, junto con lo que se dijo.</p></div>
+    <div><h3>Vuelve la sorpresa</h3><p>Antes esperabas días a que revelaran tu carrete. Flash recupera esa sensación: el día de la apertura es una pequeña fiesta en sí misma.</p></div>
+    <div><h3>Privado y honesto</h3><p>Sin anuncios, sin seguidores, sin perfiles públicos. Tus recuerdos son solo para las personas que estuvieron allí. Los invitados siempre participan gratis.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>En qué punto está Flash</h2>
+  <ol class="tijdlijn">
+    <li><strong>La app está hecha</strong><p>Los eventos, los códigos de invitación, las fotos, las frases, los mensajes y el día de la apertura funcionan.</p></li>
+    <li class="nu"><strong>Ahora: pruebas con amigos y familia</strong><p>Un grupo pequeño usa Flash en eventos reales y da su opinión.</p></li>
+    <li><strong>Mejorar con las opiniones</strong><p>Lo que echan en falta los probadores o les resulta difícil se soluciona primero.</p></li>
+    <li><strong>Lanzamiento en la App Store</strong><p>Después, cualquiera con un iPhone podrá descargar Flash.</p></li>
+  </ol>
+</div></section>
+''')
+
+P["es"]["over.html"] = ("Sobre mí – Flash", "Quién hace Flash y cómo empezó.", f'''
+<section><div class="wrap over">
+  <figure class="polaroid portret"><img src="images/thom.jpg" alt="Thom, el creador de Flash"><figcaption>Thom<span>creador</span></figcaption></figure>
+  <div>
+    <h1>Hola, soy Thom</h1>
+    <p class="inleiding">Estudio Ingeniería de la Edificación y Flash es mi propio proyecto, además de mis estudios.</p>
+    <h2 style="margin-top:40px">Cómo empezó Flash</h2>
+    <p>Después de cada cumpleaños, viaje o fiesta pasa lo mismo: todos tienen fotos, pero nunca se juntan. Se quedan repartidas en móviles y chats de grupo, y al cabo de una semana nadie las vuelve a mirar.</p>
+    <p>Quería crear una app yo mismo y elegí la idea que más me gustaba: una cápsula de recuerdos compartida. Llenarla juntos, abrirla más tarde. Así nació Flash.</p>
+    <h2 style="margin-top:40px">Lo que me gustaría saber</h2>
+    <p>Ahora mismo Flash lo están probando amigos y familia. ¿Algo no funciona, echas algo en falta o tienes una idea? Escríbeme a <a href="mailto:{EMAIL}">{EMAIL}</a>. Cada sugerencia ayuda a mejorar Flash.</p>
+  </div>
+</div></section>
+''')
+
+P["es"]["support.html"] = ("Ayuda – Flash", "Ayuda y contacto de Flash.", f'''
+<section><div class="wrap smal tekst">
+  <h1>Ayuda</h1>
+  <p class="inleiding">¿Necesitas ayuda con Flash? Aquí tienes las respuestas a las preguntas más frecuentes.</p>
+  <h2>¿Cómo me uno a un evento?</h2>
+  <p>Pide un código al creador. En Flash, toca unirse e introduce el código. Con un código de participante puedes añadir recuerdos; con un código de espectador solo ves el resultado final.</p>
+  <h2>¿Por qué no veo las fotos de los demás?</h2>
+  <p>El evento sigue sellado. Solo ves lo que has añadido tú. El día de la apertura lo verás todo.</p>
+  <h2>He olvidado mi contraseña</h2>
+  <p>Escribe a la dirección de abajo desde el correo de tu cuenta. Recibirás un enlace para elegir una nueva contraseña.</p>
+  <h2>¿Cómo elimino mi cuenta?</h2>
+  <p>En la app, desde tu perfil. Se eliminarán tu cuenta, tus recuerdos y los eventos que creaste. Más información en la <a href="privacy-es.html">política de privacidad</a>.</p>
+  <h2>Contacto</h2>
+  <p>Escribe a <a href="mailto:{EMAIL}">{EMAIL}</a>. Normalmente respondemos en dos días.</p>
 </div></section>
 ''')
 

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>À propos – Flash</title>
+<meta name="description" content="Qui fait Flash et comment tout a commencé.">
+<meta property="og:title" content="À propos – Flash">
+<meta property="og:description" content="Qui fait Flash et comment tout a commencé.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://thom2005bloem.github.io/flash-app/images/kampvuur_maken.jpg">
+<link rel="canonical" href="https://thom2005bloem.github.io/flash-app/over-fr.html">
+<link rel="alternate" hreflang="nl" href="https://thom2005bloem.github.io/flash-app/over.html">
+<link rel="alternate" hreflang="en" href="https://thom2005bloem.github.io/flash-app/over-en.html">
+<link rel="alternate" hreflang="fr" href="https://thom2005bloem.github.io/flash-app/over-fr.html">
+<link rel="alternate" hreflang="es" href="https://thom2005bloem.github.io/flash-app/over-es.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://thom2005bloem.github.io/flash-app/over-zh.html">
+<link rel="alternate" hreflang="x-default" href="https://thom2005bloem.github.io/flash-app/over.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap kop"><a class="merk" href="index-fr.html"><i></i>Flash</a><nav aria-label="Menu principal"><a href="index-fr.html">Comment ça marche</a><a href="voorbeeld-fr.html">Exemple</a><a href="visie-fr.html">Vision</a><a href="over-fr.html" aria-current="page">À propos</a><a href="support-fr.html">Aide</a></nav><details class="taal"><summary aria-label="Langue: Français"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>FR</span></summary><div class="taal-menu"><a href="over.html" hreflang="nl" lang="nl" data-taal="nl">Nederlands</a><a href="over-en.html" hreflang="en" lang="en" data-taal="en">English</a><a href="over-fr.html" hreflang="fr" lang="fr" data-taal="fr" aria-current="page">Français</a><a href="over-es.html" hreflang="es" lang="es" data-taal="es">Español</a><a href="over-zh.html" hreflang="zh-Hans" lang="zh-Hans" data-taal="zh">中文</a></div></details></div></header>
+<main>
+
+<section><div class="wrap over">
+  <figure class="polaroid portret"><img src="images/thom.jpg" alt="Thom, le créateur de Flash"><figcaption>Thom<span>créateur</span></figcaption></figure>
+  <div>
+    <h1>Salut, moi c'est Thom</h1>
+    <p class="inleiding">J'étudie le génie civil et la construction, et Flash est mon propre projet, à côté de mes études.</p>
+    <h2 style="margin-top:40px">Comment Flash a commencé</h2>
+    <p>Après chaque anniversaire, vacances ou fête, c'est la même histoire : tout le monde a des photos, mais elles ne sont jamais réunies. Elles restent éparpillées sur les téléphones et dans les groupes de discussion, et au bout d'une semaine, plus personne ne les regarde.</p>
+    <p>Je voulais créer moi-même une application et j'ai choisi l'idée qui me plaisait le plus : une capsule de souvenirs partagée. La remplir ensemble, l'ouvrir plus tard. C'est ainsi qu'est né Flash.</p>
+    <h2 style="margin-top:40px">Ce que j'aimerais savoir</h2>
+    <p>Flash est en cours de test par des amis et la famille. Quelque chose ne fonctionne pas, il te manque quelque chose ou tu as une idée ? Écris-moi à <a href="mailto:flashapp.support05@gmail.com">flashapp.support05@gmail.com</a>. Chaque conseil aide à améliorer Flash.</p>
+  </div>
+</div></section>
+
+</main>
+<footer><div class="wrap voet"><span>Des questions ou un avis ? Écris à <a href="mailto:flashapp.support05@gmail.com">flashapp.support05@gmail.com</a></span><a href="privacy-fr.html">Politique de confidentialité</a><a href="voorwaarden-fr.html">Conditions d'utilisation</a></div></footer>
+<script>
+// Taalmenu sluiten bij klik ernaast of Escape, en de gekozen taal onthouden
+(function(){
+  var d=document.querySelector('.taal');if(!d)return;
+  document.addEventListener('click',function(e){if(d.open&&!d.contains(e.target))d.open=false});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.open){d.open=false;d.querySelector('summary').focus()}});
+  d.querySelectorAll('a[data-taal]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('flash-taal',a.dataset.taal)}catch(_){}})});
+})();
+</script>
+</body>
+</html>

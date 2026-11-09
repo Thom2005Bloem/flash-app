@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vision – Flash</title>
+<meta name="description" content="Pourquoi Flash existe et où va le projet.">
+<meta property="og:title" content="Vision – Flash">
+<meta property="og:description" content="Pourquoi Flash existe et où va le projet.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://thom2005bloem.github.io/flash-app/images/kampvuur_maken.jpg">
+<link rel="canonical" href="https://thom2005bloem.github.io/flash-app/visie-fr.html">
+<link rel="alternate" hreflang="nl" href="https://thom2005bloem.github.io/flash-app/visie.html">
+<link rel="alternate" hreflang="en" href="https://thom2005bloem.github.io/flash-app/visie-en.html">
+<link rel="alternate" hreflang="fr" href="https://thom2005bloem.github.io/flash-app/visie-fr.html">
+<link rel="alternate" hreflang="es" href="https://thom2005bloem.github.io/flash-app/visie-es.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://thom2005bloem.github.io/flash-app/visie-zh.html">
+<link rel="alternate" hreflang="x-default" href="https://thom2005bloem.github.io/flash-app/visie.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap kop"><a class="merk" href="index-fr.html"><i></i>Flash</a><nav aria-label="Menu principal"><a href="index-fr.html">Comment ça marche</a><a href="voorbeeld-fr.html">Exemple</a><a href="visie-fr.html" aria-current="page">Vision</a><a href="over-fr.html">À propos</a><a href="support-fr.html">Aide</a></nav><details class="taal"><summary aria-label="Langue: Français"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>FR</span></summary><div class="taal-menu"><a href="visie.html" hreflang="nl" lang="nl" data-taal="nl">Nederlands</a><a href="visie-en.html" hreflang="en" lang="en" data-taal="en">English</a><a href="visie-fr.html" hreflang="fr" lang="fr" data-taal="fr" aria-current="page">Français</a><a href="visie-es.html" hreflang="es" lang="es" data-taal="es">Español</a><a href="visie-zh.html" hreflang="zh-Hans" lang="zh-Hans" data-taal="zh">中文</a></div></details></div></header>
+<main>
+
+<section><div class="wrap">
+  <h1>Vision</h1>
+  <p class="inleiding">Pourquoi Flash existe et où va le projet.</p>
+</div></section>
+
+<section><div class="wrap">
+  <p class="uitspraak">Les plus beaux moments se vivent ensemble. Flash fait en sorte que vous les revoyiez ensemble aussi.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Ce que défend Flash</h2>
+  <div class="principes">
+    <div><h3>Vivre d'abord</h3><p>Comme tu ne vois les photos que plus tard, tu n'as pas besoin de regarder ton téléphone toute la soirée pour voir ce que les autres publient. Tu vis le moment et tu le revois plus tard.</p></div>
+    <div><h3>Se souvenir ensemble</h3><p>Après un week-end, les photos sont éparpillées sur dix téléphones. Flash les rassemble, avec ce qui a été dit.</p></div>
+    <div><h3>Le retour de la surprise</h3><p>Avant, on attendait des jours le développement de sa pellicule. Flash fait revivre ce sentiment : le jour de l'ouverture est une petite fête en soi.</p></div>
+    <div><h3>Privé et honnête</h3><p>Pas de publicité, pas d'abonnés, pas de profils publics. Tes souvenirs sont uniquement pour les personnes qui étaient là. Les invités participent toujours gratuitement.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Où en est Flash</h2>
+  <ol class="tijdlijn">
+    <li><strong>L'application est construite</strong><p>Les événements, les codes d'invitation, les photos, les citations, les messages et le jour de l'ouverture fonctionnent.</p></li>
+    <li class="nu"><strong>Maintenant : tests avec les amis et la famille</strong><p>Un petit groupe utilise Flash lors de vrais événements et donne son avis.</p></li>
+    <li><strong>Améliorer grâce aux retours</strong><p>Ce qui manque aux testeurs ou ce qu'ils trouvent difficile est corrigé en premier.</p></li>
+    <li><strong>Lancement sur l'App Store</strong><p>Ensuite, tout le monde avec un iPhone pourra télécharger Flash.</p></li>
+  </ol>
+</div></section>
+
+</main>
+<footer><div class="wrap voet"><span>Des questions ou un avis ? Écris à <a href="mailto:flashapp.support05@gmail.com">flashapp.support05@gmail.com</a></span><a href="privacy-fr.html">Politique de confidentialité</a><a href="voorwaarden-fr.html">Conditions d'utilisation</a></div></footer>
+<script>
+// Taalmenu sluiten bij klik ernaast of Escape, en de gekozen taal onthouden
+(function(){
+  var d=document.querySelector('.taal');if(!d)return;
+  document.addEventListener('click',function(e){if(d.open&&!d.contains(e.target))d.open=false});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.open){d.open=false;d.querySelector('summary').focus()}});
+  d.querySelectorAll('a[data-taal]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('flash-taal',a.dataset.taal)}catch(_){}})});
+})();
+</script>
+</body>
+</html>

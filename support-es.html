@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ayuda – Flash</title>
+<meta name="description" content="Ayuda y contacto de Flash.">
+<meta property="og:title" content="Ayuda – Flash">
+<meta property="og:description" content="Ayuda y contacto de Flash.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://thom2005bloem.github.io/flash-app/images/kampvuur_maken.jpg">
+<link rel="canonical" href="https://thom2005bloem.github.io/flash-app/support-es.html">
+<link rel="alternate" hreflang="nl" href="https://thom2005bloem.github.io/flash-app/support.html">
+<link rel="alternate" hreflang="en" href="https://thom2005bloem.github.io/flash-app/support-en.html">
+<link rel="alternate" hreflang="fr" href="https://thom2005bloem.github.io/flash-app/support-fr.html">
+<link rel="alternate" hreflang="es" href="https://thom2005bloem.github.io/flash-app/support-es.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://thom2005bloem.github.io/flash-app/support-zh.html">
+<link rel="alternate" hreflang="x-default" href="https://thom2005bloem.github.io/flash-app/support.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap kop"><a class="merk" href="index-es.html"><i></i>Flash</a><nav aria-label="Menú principal"><a href="index-es.html">Cómo funciona</a><a href="voorbeeld-es.html">Ejemplo</a><a href="visie-es.html">Visión</a><a href="over-es.html">Sobre mí</a><a href="support-es.html" aria-current="page">Ayuda</a></nav><details class="taal"><summary aria-label="Idioma: Español"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>ES</span></summary><div class="taal-menu"><a href="support.html" hreflang="nl" lang="nl" data-taal="nl">Nederlands</a><a href="support-en.html" hreflang="en" lang="en" data-taal="en">English</a><a href="support-fr.html" hreflang="fr" lang="fr" data-taal="fr">Français</a><a href="support-es.html" hreflang="es" lang="es" data-taal="es" aria-current="page">Español</a><a href="support-zh.html" hreflang="zh-Hans" lang="zh-Hans" data-taal="zh">中文</a></div></details></div></header>
+<main>
+
+<section><div class="wrap smal tekst">
+  <h1>Ayuda</h1>
+  <p class="inleiding">¿Necesitas ayuda con Flash? Aquí tienes las respuestas a las preguntas más frecuentes.</p>
+  <h2>¿Cómo me uno a un evento?</h2>
+  <p>Pide un código al creador. En Flash, toca unirse e introduce el código. Con un código de participante puedes añadir recuerdos; con un código de espectador solo ves el resultado final.</p>
+  <h2>¿Por qué no veo las fotos de los demás?</h2>
+  <p>El evento sigue sellado. Solo ves lo que has añadido tú. El día de la apertura lo verás todo.</p>
+  <h2>He olvidado mi contraseña</h2>
+  <p>Escribe a la dirección de abajo desde el correo de tu cuenta. Recibirás un enlace para elegir una nueva contraseña.</p>
+  <h2>¿Cómo elimino mi cuenta?</h2>
+  <p>En la app, desde tu perfil. Se eliminarán tu cuenta, tus recuerdos y los eventos que creaste. Más información en la <a href="privacy-es.html">política de privacidad</a>.</p>
+  <h2>Contacto</h2>
+  <p>Escribe a <a href="mailto:flashapp.support05@gmail.com">flashapp.support05@gmail.com</a>. Normalmente respondemos en dos días.</p>
+</div></section>
+
+</main>
+<footer><div class="wrap voet"><span>¿Preguntas o comentarios? Escribe a <a href="mailto:flashapp.support05@gmail.com">flashapp.support05@gmail.com</a></span><a href="privacy-es.html">Política de privacidad</a><a href="voorwaarden-es.html">Términos de uso</a></div></footer>
+<script>
+// Taalmenu sluiten bij klik ernaast of Escape, en de gekozen taal onthouden
+(function(){
+  var d=document.querySelector('.taal');if(!d)return;
+  document.addEventListener('click',function(e){if(d.open&&!d.contains(e.target))d.open=false});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.open){d.open=false;d.querySelector('summary').focus()}});
+  d.querySelectorAll('a[data-taal]').forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('flash-taal',a.dataset.taal)}catch(_){}})});
+})();
+</script>
+</body>
+</html>
