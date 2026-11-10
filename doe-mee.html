@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doe mee met Flash</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Je bent uitgenodigd voor een evenement in Flash, de gedeelde wegwerpcamera.">
+<meta property="og:title" content="Je bent uitgenodigd voor een evenement in Flash 📸">
+<meta property="og:description" content="Tik om mee te doen. Iedereen fotografeert, pas later zie je alles.">
+<meta property="og:image" content="https://thom2005bloem.github.io/flash-app/images/kampvuur_maken.jpg">
+<link rel="stylesheet" href="style.css">
+<style>
+  .uitnodiging{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 20px}
+  .kaart{max-width:420px;width:100%;text-align:center;display:flex;flex-direction:column;gap:18px}
+  .flits{width:72px;height:72px;margin:0 auto;border-radius:50%;background:var(--flits);display:grid;place-items:center;font-size:34px;box-shadow:0 0 0 10px rgba(217,58,63,.18)}
+  .uitnodiging h1{font-size:clamp(30px,7vw,40px)}
+  .code{font:800 34px/1 var(--rond);letter-spacing:6px;background:var(--vlak);border:1px solid var(--lijn);border-radius:16px;padding:18px;color:var(--papier)}
+  .knop{display:block;text-align:center;font-size:18px;padding:18px}
+  .klein{color:var(--grijs);font-size:15px;max-width:none}
+  .fout{color:#FF8A8D}
+</style>
+</head>
+<body>
+<main class="uitnodiging">
+  <div class="kaart">
+    <div class="flits" aria-hidden="true">📸</div>
+    <h1 id="titel">Je bent uitgenodigd!</h1>
+    <p class="klein" id="uitleg">Doe mee met een evenement in Flash, de gedeelde wegwerpcamera.</p>
+    <div class="code" id="code" aria-label="Code">—</div>
+    <a class="knop vol" id="open" href="#">Open in Flash</a>
+    <p class="klein" id="hulp">Gebeurt er niets? Open Flash, tik op <strong>Meedoen met een code</strong> en vul de code hierboven in.</p>
+    <p class="klein" id="geenapp">Heb je Flash nog niet? Flash is nu in testfase. Vraag degene die je uitnodigde om een TestFlight-uitnodiging.</p>
+  </div>
+</main>
+<script>
+(function () {
+  var T = {
+    nl: ["Je bent uitgenodigd!", "Doe mee met een evenement in Flash, de gedeelde wegwerpcamera.", "Open in Flash", "Gebeurt er niets? Open Flash, tik op <strong>Meedoen met een code</strong> en vul de code hierboven in.", "Heb je Flash nog niet? Flash is nu in testfase. Vraag degene die je uitnodigde om een TestFlight-uitnodiging.", "Deze link mist een code. Vraag om een nieuwe uitnodiging."],
+    en: ["You're invited!", "Join an event in Flash, the shared disposable camera.", "Open in Flash", "Nothing happening? Open Flash, tap <strong>Join with a code</strong> and enter the code above.", "Don't have Flash yet? Flash is in testing. Ask the person who invited you for a TestFlight invite.", "This link is missing a code. Ask for a new invite."],
+    fr: ["Tu es invité !", "Rejoins un événement dans Flash, l'appareil photo jetable partagé.", "Ouvrir dans Flash", "Rien ne se passe ? Ouvre Flash, appuie sur <strong>Rejoindre avec un code</strong> et saisis le code ci-dessus.", "Tu n'as pas encore Flash ? Flash est en phase de test. Demande une invitation TestFlight à la personne qui t'a invité.", "Ce lien n'a pas de code. Demande une nouvelle invitation."],
+    es: ["¡Estás invitado!", "Únete a un evento en Flash, la cámara desechable compartida.", "Abrir en Flash", "¿No pasa nada? Abre Flash, toca <strong>Unirse con un código</strong> e introduce el código de arriba.", "¿Aún no tienes Flash? Flash está en fase de pruebas. Pide una invitación de TestFlight a quien te invitó.", "A este enlace le falta un código. Pide una nueva invitación."],
+    zh: ["你被邀请了！", "加入 Flash 中的一个活动——共享的一次性相机。", "在 Flash 中打开", "没有反应？打开 Flash，点击<strong>使用邀请码加入</strong>，然后输入上面的邀请码。", "还没有 Flash？Flash 正在测试中。请向邀请你的人索取 TestFlight 邀请。", "此链接缺少邀请码。请索取新的邀请。"]
+  };
+  var taal = (navigator.language || "nl").slice(0, 2).toLowerCase();
+  var t = T[taal] || T.en;
+  document.documentElement.lang = taal in T ? (taal === "zh" ? "zh-Hans" : taal) : "en";
+  document.title = t[0] + " – Flash";
+  document.getElementById("titel").textContent = t[0];
+  document.getElementById("uitleg").textContent = t[1];
+  document.getElementById("open").textContent = t[2];
+  document.getElementById("hulp").innerHTML = t[3];
+  document.getElementById("geenapp").textContent = t[4];
+
+  var code = (new URLSearchParams(location.search).get("code") || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 8);
+  var knop = document.getElementById("open");
+  if (!code) {
+    document.getElementById("code").textContent = "—";
+    document.getElementById("uitleg").textContent = t[5];
+    document.getElementById("uitleg").className = "klein fout";
+    knop.style.display = "none";
+    return;
+  }
+  document.getElementById("code").textContent = code;
+  var app = "capsuleapp://meedoen?code=" + encodeURIComponent(code);
+  knop.href = app;
+  // Probeer Flash meteen te openen
+  setTimeout(function () { location.href = app; }, 350);
+})();
+</script>
+</body>
+</html>
